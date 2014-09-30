@@ -3,6 +3,10 @@
 var express = require('express');
 var app = express();
 
+var exphbs  = require('express-handlebars');
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+
 // body-parser for POST
 // https://github.com/expressjs/body-parser
 var bodyParser = require('body-parser');
@@ -17,8 +21,12 @@ app.use(express.static(__dirname + '/public'));
 
 // **********************************************
 
-app.get('/', function(req, res) {
-    res.redirect('/hello.html');
+app.get('/imgs', function (req, res) {
+    var users = {imgs: [
+                        {url: 'PicassoGuernica.jpg'},
+                        {url: 'Picasso_Drawing_by_pirouline.jpg'}
+                        ]};
+    res.render('hello', users);
 });
 
 
