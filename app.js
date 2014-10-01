@@ -22,12 +22,13 @@ app.use(express.static(__dirname + '/public'));
 // **********************************************
 
 app.get('/imgs', function (req, res) {
-    var users = {imgs: [
+    var imagenes = {imgs: [
                         {url: 'PicassoGuernica.jpg'},
                         {url: 'Picasso_Drawing_by_pirouline.jpg'},
-                        {url: 'PicassoGuernica.jpg'}
+                        {url: 'PicassoGuernica.jpg'},
+                        {url: 'Picasso_Drawing_by_pirouline.jpg'}
                         ]};
-    res.render('hello', users);
+    res.render('hello', imagenes);
 });
 
 
